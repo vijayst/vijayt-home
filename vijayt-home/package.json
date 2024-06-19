@@ -7,7 +7,8 @@
     "dev": "TAILWIND_MODE=watch vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -25,6 +26,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "firebase-tools": "^13.11.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
