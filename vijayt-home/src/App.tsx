@@ -75,7 +75,7 @@ function App() {
               <li>Used Material UI, Radix UI, antd, Tailwind</li>
             </ul>
           </li>
-          <li className="mt-4">Email to vijay@vijayt.com for ReactJS work</li>
+          <li className="mt-4">Email vijay@vijayt.com for ReactJS work</li>
         </motion.ul>
       </motion.div>
     </div>
