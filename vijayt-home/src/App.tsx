@@ -4,20 +4,40 @@ import clsx from "clsx";
 
 function App() {
   const [completed, setCompleted] = useState(false);
+
+
   return (
-    <div className="min-h-screen bg-yellow-50 flex items-center justify-center">
+    <div
+      className={clsx(
+        "min-h-screen bg-yellow-50 flex items-center justify-center",
+        completed && "max-sm:items-start"
+      )}
+    >
       <motion.div
         className={clsx(
-          "bg-yellow-100 p-3 rounded-lg shadow",
-          !completed &&
-            "flex flex-col justify-center items-center shadow-none"
+          "bg-yellow-100 p-3 max-sm:p-8 rounded-lg shadow",
+          !completed && "flex flex-col justify-center items-center shadow-none"
         )}
         animate={{
           scale: [1, 2, 2, 1, 1, 1],
           rotate: [0, 0, 180, 180, 0, 0],
           borderRadius: ["0%", "0%", "50%", "50%", "0%", "0%"],
-          width: [256, 256, 256, 256, 256, 550],
-          height: [256, 256, 256, 256, 256, 400],
+          width: [
+            256,
+            256,
+            256,
+            256,
+            256,
+            window.innerWidth < 640 ? window.innerWidth : 550,
+          ],
+          height: [
+            256,
+            256,
+            256,
+            256,
+            256,
+            window.innerWidth < 640 ? window.innerHeight : 400,
+          ],
         }}
         transition={{
           duration: 2,
@@ -26,21 +46,23 @@ function App() {
         }}
         onAnimationComplete={() => setCompleted(true)}
       >
-        {!completed && <img width={100} height={100} src="/android-chrome-192x192.png" />}
+        {!completed && (
+          <img width={100} height={100} src="/android-chrome-192x192.png" />
+        )}
         <motion.div
           className="text-4xl text-center text-red-600 mb-4"
           initial={{
             y: 150,
-            opacity: 0
+            opacity: 0,
           }}
           animate={{
             y: 0,
-            opacity: 1
+            opacity: 1,
           }}
           transition={{
             duration: 0.3,
             delay: 2,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         >
           {completed && "Vijay T"}
